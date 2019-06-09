@@ -1,0 +1,111 @@
+body{
+    background-image: url("../../assets/pictures/Wallpaper2.jpg");
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1{
+    position:absolute;
+    left:50px;
+    font-weight: 100;
+}
+
+.buttons{
+    position:absolute;
+    left: 50px;
+    top:100px;
+}
+
+
+#button1{
+    position:absolute;
+    left: 150px;
+}
+
+#button2{
+    position:absolute;
+    left: 150px;
+}
+
+#number{
+    position:absolute;
+    left: 150px;
+}
+
+#button3{
+    position:absolute;
+    left: 150px;
+}
+
+#button4{
+    position:absolute;
+    left: 250px;
+}
+
+#outputs{
+    position:absolute;
+    top:300px;
+    left:50px;
+}
+
+#output1{
+    position:absolute;
+    width:600px;
+    height:60px;
+    border:red 1px solid;
+    overflow:auto;
+}
+
+#output2{
+    position:absolute;
+    width:600px;
+    height:60px;
+    border:green 1px solid;
+    overflow:auto;
+}
+
+img{
+    position:relative;
+    top:80px;
+    width:60%;
+    left:75px;
+}
+
+#myDivA{
+    position:absolute;
+    top:50px;
+    left:800px;
+    border:3px green solid;
+    width:450px;
+    height:400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#myDivB{
+    position:absolute;
+    top:50px;
+    left:1300px;
+    border:3px blue solid;
+    width:450px;
+    height:400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#myDivC{
+    position:absolute;
+    top:500px;
+    left:1300px;
+    border:3px red solid;
+    width:450px;
+    height:400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#myDivD{
+    position:absolute;
+    top:500px;
+    left:800px;
+    border:3px yellow solid;
+    width:450px;
+    height:400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

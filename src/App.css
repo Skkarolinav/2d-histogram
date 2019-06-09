@@ -1,0 +1,55 @@
+body{
+    background-image: url("../assets/pictures/Wallapaper1.jpg");
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.mycontainer{
+    height:100vh;
+    width: 100vw;
+}
+
+h1{
+    left:50px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.myDiv{
+    text-align:center;
+    padding:50px;
+    width: 100%;
+}
+
+.myDiv1{
+    padding-bottom: 2%;
+}
+
+.myDiv2{
+    color: white;
+    transition: 1s;
+    border: 1px solid transparent;
+}
+
+.myDiv3{
+    color:white;
+    transition: 1s linear;
+    border: 1px solid transparent;
+}
+
+.myDiv2:hover, .myDiv3:hover{
+    border: 1px solid rgba(255, 255, 255, 0.329);
+}
+
+img{
+    height:400px;
+    width:560px;
+}
+
+.mine-contener{
+    width: 90%;
+}
+
+a:hover{
+    text-decoration: none;
+}

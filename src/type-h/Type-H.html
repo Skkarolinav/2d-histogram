@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Type-H.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Photodetector Type-H: Dark Counts Measurement</h1>
+
+        <div class="buttons">
+            Position TXT: <input type="file" accept="text/plain" id="button1"> <br> <br>
+            Value TXT: <input type="file" accept="text/plain" id="button2"> <br> <br> <br>
+            Acquisition Time: <input type="number" name="number" min="1" required value="1" id="number"> <br> <br> <br>
+            Histograms: <input type="button" value="Plot" id="button3"> <input type="button" value="Reset" id="button4" onClick="window.location.reload();">
+        </div>
+    
+        <div id="outputs">
+            String Positions:
+            <div id="output1"></div>
+            <br> <br> <br> <br> <br>
+            String Values:
+            <div id="output2"></div>
+            <br>
+            <img src="../../assets/pictures/Type-H-Scheme.png">
+        </div>
+    
+        <div id="myDivA"></div>
+        <div id="myDivB"></div>
+        <div id="myDivC"></div>
+        <div id="myDivD"></div>
+
+        <script src="Type-H.js"></script>
+      
+    </body>
+
+</html>
+
