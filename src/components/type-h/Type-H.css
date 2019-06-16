@@ -1,12 +1,12 @@
 body{
-    background-image: url("../../assets/pictures/Wallpaper2.jpg");
+    background-image: url('../../assets/pictures/Wallpaper2.jpg');
     font-family: 'Times New Roman', Times, serif;
 }
 
 h1{
     position:absolute;
     left:50px;
-    font-weight: 100;
+    font-weight: 100
 }
 
 .buttons{
@@ -65,7 +65,7 @@ h1{
 
 img{
     position:relative;
-    top:80px;
+    top:100px;
     width:60%;
     left:75px;
 }
@@ -74,7 +74,7 @@ img{
     position:absolute;
     top:50px;
     left:800px;
-    border:3px green solid;
+    border:3px orange solid;
     width:450px;
     height:400px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -84,7 +84,7 @@ img{
     position:absolute;
     top:50px;
     left:1300px;
-    border:3px blue solid;
+    border:3px purple solid;
     width:450px;
     height:400px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -94,7 +94,7 @@ img{
     position:absolute;
     top:500px;
     left:1300px;
-    border:3px red solid;
+    border:3px greenyellow solid;
     width:450px;
     height:400px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -104,8 +104,17 @@ img{
     position:absolute;
     top:500px;
     left:800px;
-    border:3px yellow solid;
+    border:3px darkblue solid;
     width:450px;
     height:400px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.kolumna1{
+    background: lavenderblush;
+}
+
+.kolumna2{
+    background: red;
 }

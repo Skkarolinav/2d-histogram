@@ -1,11 +1,11 @@
-var positionsButton = document.querySelector("#button1"),
-    valuesButton = document.querySelector("#button2"),
-    plottingButton = document.querySelector("#button3"),
+var positionsButton = document.querySelector('#button1'),
+    valuesButton = document.querySelector('#button2'),
+    plottingButton = document.querySelector('#button3'),
 
-    positionsDiv = document.querySelector("#output1"),
-    valuesDiv = document.querySelector("#output2"),
+    positionsDiv = document.querySelector('#output1'),
+    valuesDiv = document.querySelector('#output2'),
 
-    acquisitionTime = document.querySelector("#number");
+    acquisitionTime = document.querySelector('#number');
 
 //----------Promises----------//
 var positionsPromise = new Promise(function(resolve, reject){
@@ -19,7 +19,7 @@ var positionsPromise = new Promise(function(resolve, reject){
             }
             reader.readAsText(e.target.files[0]);
         } else{
-            reject("Error: promise not fulfilled.")
+            reject('Error: promise not fulfilled.')
         }
     }
 })
@@ -35,7 +35,7 @@ var valuesPromise = new Promise(function(resolve, reject){
             }
             reader.readAsText(e.target.files[0]);
         } else{
-            reject("Error: promise not fulfilled.")
+            reject('Error: promise not fulfilled.')
         }
     }
 })
@@ -63,43 +63,32 @@ valuesPromise.then(function(resultPromise){
 
 
 plottingButton.onclick = function(){
-//----------Arrays Assembling----------//
+    //----------Arrays Assembling----------//
     //---Values Divided by Acquisition Time---//
     var valuesArrayTime = valuesArray.map(function(x){
         return x/acquisitionTime.value;
     })  
 
-    //---Positions Decomposition---//
-    var positionsArrayD1 = positionsArray.splice(0,32),
-        positionsArrayA1 = positionsArray.splice(0,32),
-        positionsArrayD2 = positionsArray.splice(0,32),
-        positionsArrayA2 = positionsArray.splice(0,32),
-        positionsArrayC1 = positionsArray.splice(0,32),
-        positionsArrayB1 = positionsArray.splice(0,32),
-        positionsArrayC2 = positionsArray.splice(0,32),
-        positionsArrayB2 = positionsArray;
-
-    //---Values Decomposition---//
-    var valuesArrayD1 = valuesArrayTime.splice(0,32),
-        valuesArrayA1 = valuesArrayTime.splice(0,32),
-        valuesArrayD2 = valuesArrayTime.splice(0,32),
-        valuesArrayA2 = valuesArrayTime.splice(0,32),
-        valuesArrayC2 = valuesArrayTime.splice(0,32),
-        valuesArrayB2 = valuesArrayTime.splice(0,32),
-        valuesArrayC1 = valuesArrayTime.splice(0,32),
-        valuesArrayB1 = valuesArrayTime;
-
     //---Positions New Composition---//
-    var positionArrayD = positionsArrayD1.concat(positionsArrayD2),
-        positionArrayA = positionsArrayA1.concat(positionsArrayA2),
-        positionArrayC = positionsArrayC1.concat(positionsArrayC2),
-        positionArrayB = positionsArrayB1.concat(positionsArrayB2);
+    var positionArrayD = positionsArray,
+        positionArrayA = positionsArray,
+        positionArrayC = positionsArray,
+        positionArrayB = positionsArray;
 
     //---Values New Composition---//
-    var valuesArrayD = valuesArrayD1.concat(valuesArrayD2),
-        valuesArrayA = valuesArrayA1.concat(valuesArrayA2),
-        valuesArrayC = valuesArrayC1.concat(valuesArrayC2),
-        valuesArrayB = valuesArrayB1.concat(valuesArrayB2);
+    var valuesArrayD = valuesArrayTime.splice(0,64),
+        valuesArrayA = valuesArrayTime.splice(0,64),
+        valuesArrayC = valuesArrayTime.splice(0,64),
+        valuesArrayB = valuesArrayTime.splice(0,64);
+
+
+//----------Mapping Section----------//
+    //---Assigning Values---//
+    var emptyObjectA = {},
+        emptyObjectB = {},
+        emptyObjectC = {},
+        emptyObjectD = {};
+
 
 //----------Mapping Section----------//
     //---Assigning Values---//
@@ -138,6 +127,8 @@ plottingButton.onclick = function(){
         arrayC = arrayConverter(objectC, emptyArrayC),
         arrayD = arrayConverter(objectD, emptyArrayD);
 
+        console.log(arrayA)
+
     //---Converting Arrays to Matrices---//
     var emptyMatrixA=[],
         emptyMatrixB=[],
@@ -158,6 +149,7 @@ plottingButton.onclick = function(){
         matrixC = matrixConverter(arrayC, emptyMatrixC),
         matrixD = matrixConverter(arrayD, emptyMatrixD);
 
+
 //----------Transposition Section----------//
     //---A Transposition---//
     for (var i=0; i<matrixA.length; i++){
@@ -165,27 +157,24 @@ plottingButton.onclick = function(){
     }
 
     //---B Transposition---
-    function transpose(a){
-        return Object.keys(a[0]).map(function(c){
-            return a.map(function(r) {return r[c];});
-        });
+    for (var i=0; i<matrixB.length; i++){
+        matrixB[i].reverse();
     }
-    matrixB = transpose(matrixB);
 
     //---C Transposition---
-    matrixC.reverse();
+    for (var i=0; i<matrixC.length; i++){
+        matrixC[i].reverse();
+    }
 
     //---D Transposition---
     for (var i=0; i<matrixD.length; i++){
         matrixD[i].reverse();
     }
-    matrixD.reverse();
-    matrixD = transpose(matrixD)
 
 //----------Plotting Section----------//
     //---A Plotting---//
     var layoutA = {
-        title: "Photodetector Tube A",
+        title: 'Photodetector Tube 1',
         titlefont: {size: 20},
         margin: {
             t: 50,
@@ -202,11 +191,11 @@ plottingButton.onclick = function(){
         type: 'heatmap'    
     }];
     
-    Plotly.newPlot("myDivA", arrayAPlot, layoutA, {displaylogo: false});
+    Plotly.newPlot('myDivA', arrayAPlot, layoutA, {displaylogo: false});
 
     //---B Plotting---
     var layoutB = {
-        title: "Photodetector Tube B",
+        title: 'Photodetector Tube 2',
         titlefont: {size: 20},
         margin: {
             t: 50,
@@ -223,11 +212,11 @@ plottingButton.onclick = function(){
         type: 'heatmap'    
     }];
     
-    Plotly.newPlot("myDivB", arrayBPlot, layoutB, {displaylogo: false});
+    Plotly.newPlot('myDivB', arrayBPlot, layoutB, {displaylogo: false});
 
     // ---C Plotting---
     var layoutC = {
-        title: "Photodetector Tube C",
+        title: 'Photodetector Tube 3',
         titlefont: {size: 20},
         margin: {
             t: 50,
@@ -244,11 +233,11 @@ plottingButton.onclick = function(){
         type: 'heatmap'    
     }];
 
-    Plotly.newPlot("myDivC", arrayCPlot, layoutC, {displaylogo: false});
+    Plotly.newPlot('myDivC', arrayCPlot, layoutC, {displaylogo: false});
 
     //---D Plotting---
     var layoutD = {
-        title: "Photodetector Tube D",
+        title: 'Photodetector Tube 4',
         titlefont: {size: 20},
         margin: {
             t: 50,
@@ -265,6 +254,6 @@ plottingButton.onclick = function(){
         type: 'heatmap'    
     }];
     
-    Plotly.newPlot("myDivD", arrayDPlot, layoutD, {displaylogo: false});
+    Plotly.newPlot('myDivD', arrayDPlot, layoutD, {displaylogo: false});
 
 }
